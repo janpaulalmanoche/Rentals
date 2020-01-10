@@ -55,16 +55,17 @@
             <table class="table">
               <thead class=" text-primary">
                 <th>Name</th>
-                <th>Country</th>
-                <th>City</th>
-                <th class="text-right">Salary</th>
+                <th>Room Type</th>
+                <th>Price</th>
+                <th class="text-right"></th>
               </thead>
               <tbody>
                 @foreach ($activeTenants as $activeTenant)
                 <tr>      
+                  <td> {{$activeTenant->room_name}} </td>
                 <td class="text-left">{{$activeTenant->room_type}} </td>
               
-                <td> {{$activeTenant->room_name}} </td>
+                
                 <td> {{$activeTenant->price}} </td>
                   <td class="td-actions text-right">
                     <button class="btn btn-primary btn-sm">
@@ -94,15 +95,13 @@
             <table class="table">
               <thead class=" text-primary">
                 <th>Name</th>
-                <th>Country</th>
-                <th>City</th>
-                <th class="text-right">Salary</th>
+                <th>RoomType</th>
+                <th>Price</th>
+                <th class="text-right"></th>
               </thead>
               <tbody>
                 <tbody>
-                  @foreach ($inactiveTenants as $inactiveTenant)
-                      
-               
+                  @foreach ($inactiveTenants as $inactiveTenant)   
                   <tr>      
                   <td class="text-left">{{$inactiveTenant->room_name}}  </td>
                  

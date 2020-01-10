@@ -21,14 +21,30 @@
         <input type="text" class="form-control"  name="room_name" id="room_name" value="{{$rooms->room_name}}" placeholder="Enter Room Type">
         </div>
 
-          <div class="form-group">
+          {{-- <div class="form-group">
             <label for="">Price</label>
             <input type="text" class="form-control"  name="price" id="price" value="{{$rooms->price}}" placeholder="Enter Price">
+          </div> --}}
+
+          {{-- <div class="form-group">
+            <label for="">Room Type</label>
+          <input type="text" class="form-control"  name="room_type" id="room_name" value="{{$rooms->room_type}}" placeholder="Enter Room Name">
+          </div> --}}
+          
+          <div class="form-group">
+            <label for="">Room Price</label>
+            <select class="form-control" name="price" id="price" >
+            <option value="3000">3000</option>
+              <option value="3500">3500</option>
+            </select>
           </div>
 
           <div class="form-group">
             <label for="">Room Type</label>
-          <input type="text" class="form-control"  name="room_type" id="room_name" value="{{$rooms->room_type}}" placeholder="Enter Room Name">
+            <select class="form-control" name="room_type" id="room_type" >
+            <option value="Single Room">Single Room</option>
+              <option value="Apartment Room">Apartment Room</option>
+            </select>
           </div>
 
           <div class="form-group">

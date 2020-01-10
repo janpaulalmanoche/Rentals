@@ -48,10 +48,10 @@ class RoomController extends Controller
     public function update(Request $request, $id)
     {
         $this->validate($request, [
-            'room_type'=> 'required',//room type
-            'room_name'=> 'required|unique:rooms',//room type
-            'price'=> 'required',
-            'active'=> 'required',
+            // 'room_type'=> 'required',//room type
+            // 'room_name'=> 'required|unique:rooms',//room type
+            // 'price'=> 'required',
+            // 'active'=> 'required',
  
 
         ]);
