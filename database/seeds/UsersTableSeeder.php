@@ -4,6 +4,8 @@ use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 use App\User;
 use App\Role;
+use App\Type;
+use App\Room;
 class UsersTableSeeder extends Seeder
 {
     /**
@@ -13,9 +15,9 @@ class UsersTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('role_user')->truncate();
-        $adminRole= Role::where('name','admin')->first();
-        $staffRole= Role::where('name','staff')->first();
+        // DB::table('role_user')->truncate();
+        // $adminRole= Role::where('name','admin')->first();
+        // $staffRole= Role::where('name','staff')->first();
        
 
         $admin = User::create([
@@ -23,6 +25,7 @@ class UsersTableSeeder extends Seeder
             'mname'=> 'Admin Middlename',
             'lname'=> 'Admin Lastname',
             'email'=> 'admin@admin.com',
+            'type_id' => 3,
             'password'=> Hash::make('password')
         ]);
 
@@ -31,12 +34,56 @@ class UsersTableSeeder extends Seeder
             'mname'=> 'Staff MiddleName',
             'lname'=> 'Staff Lastname',
             'email'=> 'staff@staff.com',
+            'type_id' => 2,
             'password'=> Hash::make('password')
         ]);
       
+   
 
-        $admin->roles()->attach($adminRole);
-        $staff->roles()->attach($staffRole);
+          User::create([
+            'fname'=> 'jay mdeia ',
+            'mname'=> 'mid name',
+            'lname'=> 'james',
+            'email'=> 'tenant1@staff.com',
+            'type_id' => 1,
+            'password'=> Hash::make('password')
+        ]);
+
+        
+        User::create([
+            'fname'=> 'tenant 2',
+            'mname'=> 'mid tent',
+            'lname'=> 'hello',
+            'email'=> 'tenant2@staff.com',
+            'type_id' => 1,
+            'password'=> Hash::make('password')
+        ]);
+
+        Room::create([
+            'room_name'=> 'room 2',
+            'room_type'=> 'single',
+            'price'=> "3000",
+            'status'=> "vacant",
+           
+          
+        ]);
+      
+      
+   
+        // $admin->roles()->attach($adminRole);
+        // $staff->roles()->attach($staffRole);
        
+        Type::insert([
+            [
+             'type'=> 'tenant',
+            ],
+            [
+             'type'=> 'staff',
+            ],
+           [
+            'type'=> 'admin',
+           ]
+         ]);
+ 
     }
 }

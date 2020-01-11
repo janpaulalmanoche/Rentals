@@ -56,7 +56,15 @@ Route::get('/dashboard','DashboardController@index');
 
 Route::get('/dynamic_dependent', 'DynamicDependent@index');
 Route::post('dynamic_dependent/fetch', 'DynamicDependent@fetch')->name('dynamicdependent.fetch');
+    
+Route::get('/rooms','RoomsController@index');
 
+Route::get('/room-booked/{id}','RoomsController@booked');
+Route::post('/store-booked','RoomsController@store');
+
+Route::get('/booked-rooms','RoomsController@booked_rooms');
+
+Route::get('/test','RoomsController@test');
 //dynamic room
 // ss
 ?>

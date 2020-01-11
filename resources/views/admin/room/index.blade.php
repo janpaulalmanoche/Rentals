@@ -19,6 +19,7 @@
                 <th>ID</th>
                 <th>Room Name</th>
                 <th>Room Type</th>
+                <th>Room Status</th>
                 <th>Room Price</th>
                 <th class="text-center">
                 Edit
@@ -35,11 +36,20 @@
                 <td>{{$room->id}}</td>
                 <td>{{$room->room_name}}</td>
                 <td>{{$room->room_type}}</td>
+                <td>{{$room->status}}</td>
                 <td>{{$room->price}}</td>
         
 
                   <td class="text-center"><a href="{{ url('editroom/'.$room->id)}}" class="btn btn-sucess">Edit</a>
                     <a href="#" class="btn btn-alert">Delete</a>
+
+                    <a href={{url('/room-booked',$room->id)}}>
+                      @if($room->status === 'vacant')
+                      <button class="btn btn-primay">Booked</button> 
+                    @else
+                
+                    @endif
+                  </a>
                     </td>  
               
 

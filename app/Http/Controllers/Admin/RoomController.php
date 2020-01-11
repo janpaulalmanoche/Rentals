@@ -25,7 +25,7 @@ class RoomController extends Controller
             'room_type'=> 'required',// room type
             'room_name'=> 'required',// room type
              'price'=> 'required',
-             'active'=> 'required',
+        
 
          ]);
          $rooms=new Room();
@@ -33,7 +33,7 @@ class RoomController extends Controller
          $rooms->room_type = $request->input('room_type');//room type
          $rooms->room_name = $request->input('room_name');//room type
          $rooms->price = $request->input('price');
-         $rooms->active = $request->input('active');
+         $rooms->status = 'vacant';
          $rooms->save();
          return redirect('/room');
     }

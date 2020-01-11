@@ -37,7 +37,7 @@
             <option value="3500">3500</option>
           </select>
          </div>
-
+{{-- 
          <div class="col-md-4 pr-1">
           <div class="form-group">
             <label>Status</label>
@@ -46,7 +46,7 @@
               <option value="1">Occupied</option>
               <option value="0">Unoccupied</option>
             </select>
-          </div>
+          </div> --}}
         </div>
      
 

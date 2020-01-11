@@ -43,10 +43,24 @@
             </a>
           </li>
        
-          <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
-          <a href="/book">
+          {{-- <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
+          <a href={{url('rooms')}}>
             <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Booking</p> 
+            <p>Rooms</p> 
+          </a>
+        </li> --}}
+
+        <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
+          <a href={{url('/booked-rooms')}}>
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Bookings</p> 
+          </a>
+        </li>
+
+        <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
+          <a href={{url('/booked-rooms')}}>
+            <i class="now-ui-icons design_bullet-list-67"></i>
+            <p>Billing</p> 
           </a>
         </li>
      
