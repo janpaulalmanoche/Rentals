@@ -36,6 +36,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function booking(){
+
+        return $this->belongsTo('App\Booking','user_id','id')->where('status','=','active');
+    }
     
     public function roles()
     {

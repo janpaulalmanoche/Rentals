@@ -46,6 +46,7 @@ class UsersTableSeeder extends Seeder
             'lname'=> 'james',
             'email'=> 'tenant1@staff.com',
             'type_id' => 1,
+            'phone_no' => 834747474,
             'password'=> Hash::make('password')
         ]);
 
@@ -55,6 +56,7 @@ class UsersTableSeeder extends Seeder
             'mname'=> 'mid tent',
             'lname'=> 'hello',
             'email'=> 'tenant2@staff.com',
+            'phone_no' => 7474929,
             'type_id' => 1,
             'password'=> Hash::make('password')
         ]);

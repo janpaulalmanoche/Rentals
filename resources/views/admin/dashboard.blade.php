@@ -5,6 +5,8 @@
 
 @section('content')
 <div class="row">
+  @if(auth()->user()->type_id === 1)
+
     {{-- <div class="col-md-12">
       <div class="card">
         <div class="card-header">
@@ -43,10 +45,14 @@
 
 
 
- 
-    <div class="col-md-6">
+
+<h5>Welcome . You can Check your history in this site</h5>
+  @else
+  <div class="col-md-6">
+
       <div class="card">
         <div class="card-header">
+
           <h5 class="card-category">List of Rooms</h5>
           <h4 class="card-title">Ocupied Room</h4>
         </div>
@@ -60,23 +66,23 @@
                 <th class="text-right"></th>
               </thead>
               <tbody>
-                @foreach ($activeTenants as $activeTenant)
-                <tr>      
-                  <td> {{$activeTenant->room_name}} </td>
-                <td class="text-left">{{$activeTenant->room_type}} </td>
-              
-                
-                <td> {{$activeTenant->price}} </td>
-                  <td class="td-actions text-right">
-                    <button class="btn btn-primary btn-sm">
-                      <i class="now-ui-icons ui-2_settings-90"></i>
-                    </button>
-                    <button class="btn btn-warning btn-sm">
-                      <i class="now-ui-icons ui-1_simple-remove"></i>
-                    </button>
-                  </td>
-                </tr>
-                @endforeach
+                {{--@foreach ($activeTenants as $activeTenant)--}}
+                {{--<tr>      --}}
+                  {{--<td> {{$activeTenant->room_name}} </td>--}}
+                {{--<td class="text-left">{{$activeTenant->room_type}} </td>--}}
+              {{----}}
+                {{----}}
+                {{--<td> {{$activeTenant->price}} </td>--}}
+                  {{--<td class="td-actions text-right">--}}
+                    {{--<button class="btn btn-primary btn-sm">--}}
+                      {{--<i class="now-ui-icons ui-2_settings-90"></i>--}}
+                    {{--</button>--}}
+                    {{--<button class="btn btn-warning btn-sm">--}}
+                      {{--<i class="now-ui-icons ui-1_simple-remove"></i>--}}
+                    {{--</button>--}}
+                  {{--</td>--}}
+                {{--</tr>--}}
+                {{--@endforeach--}}
               </tbody>
             </table>
           </div>
@@ -101,24 +107,25 @@
               </thead>
               <tbody>
                 <tbody>
-                  @foreach ($inactiveTenants as $inactiveTenant)   
-                  <tr>      
-                  <td class="text-left">{{$inactiveTenant->room_name}}  </td>
-                 
-                  <td> {{$inactiveTenant->room_type}}</td>
-                  <td> {{$inactiveTenant->price}}</td>
-                    <td class="td-actions text-right">
-                      <button class="btn btn-primary btn-sm">
-                        <i class="now-ui-icons ui-2_settings-90"></i>
-                      </button>
-                      <button class="btn btn-warning btn-sm">
-                        <i class="now-ui-icons ui-1_simple-remove"></i>
-                      </button>
-                    </td>
-                  </tr>
-                  @endforeach
+                  {{--@foreach ($inactiveTenants as $inactiveTenant)   --}}
+                  {{--<tr>      --}}
+                  {{--<td class="text-left">{{$inactiveTenant->room_name}}  </td>--}}
+                 {{----}}
+                  {{--<td> {{$inactiveTenant->room_type}}</td>--}}
+                  {{--<td> {{$inactiveTenant->price}}</td>--}}
+                    {{--<td class="td-actions text-right">--}}
+                      {{--<button class="btn btn-primary btn-sm">--}}
+                        {{--<i class="now-ui-icons ui-2_settings-90"></i>--}}
+                      {{--</button>--}}
+                      {{--<button class="btn btn-warning btn-sm">--}}
+                        {{--<i class="now-ui-icons ui-1_simple-remove"></i>--}}
+                      {{--</button>--}}
+                    {{--</td>--}}
+                  {{--</tr>--}}
+                  {{--@endforeach--}}
               </tbody>
             </table>
+            @endif
           </div>
         </div>
       </div>

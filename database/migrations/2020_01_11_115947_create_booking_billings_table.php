@@ -14,11 +14,11 @@ class CreateBookingBillingsTable extends Migration
     public function up()
     {
         Schema::create('booking_billings', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->integer('booking_id');
-            $table->date('month');
-            $table->string('status');
-            $table->integer('price');
+            $table->bigIncrements('id')->nullable();
+            $table->integer('booking_id')->nullable();
+            $table->date('month')->nullable();
+            $table->string('status')->nullable();
+            $table->integer('price')->nullable();
             $table->timestamps();
         });
     }

@@ -5,7 +5,7 @@
     <div class="col-md-12">
       <div class="card">
         <div class="card-header">
-          <h4 class="card-title"> Active Bookings </h4>
+          <h4 class="card-title"> In Active Bookings </h4>
 
          </div>
 
@@ -31,13 +31,13 @@
                   <td>{{$room->status}}</td>
                   <td>{{$room->user()->first()->fname}}</td>
                     <td>
-                        <a href="{{url('booked-room',$room->id)}}">
-                            <button class="btn btn-primary">Details </button>
-                        </a>
+                        {{--<a href="{{url('booked-room',$room->id)}}">--}}
+                            {{--<button class="btn btn-primary">Details </button>--}}
+                        {{--</a>--}}
 
-                        <a href="{{url('/booking-inactive',$room->id)}}">
-                            <button class="btn btn-primary">Mark Vacant</button>
-                        </a>
+                        {{--<a href="{{url('booked-room',$room->id)}}">--}}
+                            {{--<button class="btn btn-primary">Mark Vacant</button>--}}
+                        {{--</a>--}}
                     </td>
 
                 </tr>

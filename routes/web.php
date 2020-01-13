@@ -24,6 +24,11 @@ Route::resource('/users',  'UsersController', ['except' => ['show', 'create', 's
     
 });
 
+Route::group(['middleware' => ['auth']], function () {
+
+
+
+
 Route::get('/tenant','Admin\TenantController@index');//tenant
 Route::get('/registerTenant','Admin\TenantController@create');
 Route::post('/addTenant','Admin\TenantController@store');
@@ -59,12 +64,32 @@ Route::post('dynamic_dependent/fetch', 'DynamicDependent@fetch')->name('dynamicd
     
 Route::get('/rooms','RoomsController@index');
 
+//booked a room
 Route::get('/room-booked/{id}','RoomsController@booked');
 Route::post('/store-booked','RoomsController@store');
 
+//list of booked rooms only active
 Route::get('/booked-rooms','RoomsController@booked_rooms');
+//inactive booked rooms
+Route::get('/booked-rooms-inactive','RoomsController@inactive_booked_rooms');
+//details of active booked rooms
+Route::get('/booked-room/{id}','RoomsController@booked_room_booking_details');
+//mark paid booking billibng
+Route::get('/pay-billing/{id}','RoomsController@pay_billing');
+//set booking to inactive
+Route::get('/booking-inactive/{id}','RoomsController@set_booking_inactive');
+
+//tenant history
+    Route::get('my-billings','BillingController@index');
+
+
+//create a user. admin. or tenant
+Route::get('/user-create','UserController@create');
+Route::post('/user-store','UserController@store');
 
 Route::get('/test','RoomsController@test');
+
+});
 //dynamic room
 // ss
 ?>

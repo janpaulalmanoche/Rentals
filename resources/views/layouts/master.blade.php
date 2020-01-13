@@ -22,6 +22,17 @@
             </a>
           </li>
 
+          @if(auth()->user()->type_id === 1)
+            <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
+              <a href={{url('/my-billings')}}>
+                <i class="now-ui-icons design_bullet-list-67"></i>
+                <p>My Billings</p>
+              </a>
+            </li>
+
+
+            @else
+
        
           <li class="{{ 'room' == request()->path() ? 'active ' : ' ' }}">
             <a href="/room">
@@ -53,17 +64,25 @@
         <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
           <a href={{url('/booked-rooms')}}>
             <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Bookings</p> 
+            <p>Active Bookings</p>
           </a>
         </li>
 
         <li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">
-          <a href={{url('/booked-rooms')}}>
+          <a href={{url('/booked-rooms-inactive')}}>
             <i class="now-ui-icons design_bullet-list-67"></i>
-            <p>Billing</p> 
+            <p>InActive Bookings</p>
           </a>
         </li>
-     
+          @endif
+
+        {{--<li class="{{ 'book' == request()->path() ? 'active ' : ' ' }}">--}}
+          {{--<a href={{url('/booked-rooms')}}>--}}
+            {{--<i class="now-ui-icons design_bullet-list-67"></i>--}}
+            {{--<p>Billing</p> --}}
+          {{--</a>--}}
+        {{--</li>--}}
+     {{----}}
         </ul>
       </div>
     </div>
@@ -99,6 +118,7 @@
                 </div>
               </div>
             </form> --}}
+
 
 
             <ul class="navbar-nav">  

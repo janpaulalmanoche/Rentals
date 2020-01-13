@@ -16,14 +16,14 @@ class DashboardController extends Controller
         // 'rooms.room_type','rooms.room_name','bookings.active')
         // ->get(); 
 
-        $activeTenants=Room::where('active',1)->get();
-        $inactiveTenants=Room::where('active',0 )->get();
+//        $activeTenants=Room::where('active',1)->get();
+//        $inactiveTenants=Room::where('active',0 )->get();
         //  $tenants = Booking::find($id);
         //  $tenant=Booking::findOrFail($id);
 
         // dd($activeTenants);
 
-        return view('admin.dashboard',compact('activeTenants','inactiveTenants')); //joindatadeleted
+        return view('admin.dashboard'); //joindatadeleted
     }
 
     

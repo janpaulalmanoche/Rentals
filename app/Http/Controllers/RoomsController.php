@@ -7,6 +7,7 @@ use App\Booking;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\BookingBilling;
+
 class RoomsController extends Controller
 {
     //
@@ -33,6 +34,7 @@ class RoomsController extends Controller
         $new->room_id = $request->room_id;
         $new->tenant_id = $request->user;
         $new->price = $request->price;
+        $new->status = 'active';
         $new->save();
 
         //update room status
@@ -50,14 +52,57 @@ class RoomsController extends Controller
 
 
         // dd($new);
-        return redirect('/booked-rooms');
+        return redirect(url('\booked-room',$billing->id));
     }
 
+    //active booked rooms
     public function booked_rooms(){
 
-        $booked = Booking::with('user','room')->get();
+        $booked = Booking::with('user','room')->where('status','=','active')->get();
         // dd($booked);
         return view('rooms.booked_rooms')->with(compact('booked'));
+    }
+
+    public function inactive_booked_rooms(){
+
+        $booked = Booking::with('user','room')->where('status','=','inactive')->get();
+        // dd($booked);
+        return view('rooms.booked_rooms_inactive')->with(compact('booked'));
+    }
+
+
+
+    public function booked_room_booking_details($id){
+
+//        dd($id);
+        $billings = BookingBilling::where('booking_id',$id)->get();
+        $room = Booking::where('id',$id)->first();
+        return view('rooms.booked_room_billings')->with(compact('billings','room'));
+    }
+
+
+    //pay billing
+    public function pay_billing($id){
+
+        $booking_billing = BookingBilling::where('id',$id)->first();
+        $booking_billing->status = 'paid';
+        $booking_billing->save();
+        return redirect()->back();
+
+    }
+
+    //set booking to incactive //tenatn leaves the room
+    public function set_booking_inactive($id){
+
+        $booking = Booking::where('id',$id)->first();
+        $booking->status = 'inactive';
+        $booking->save();
+
+        $room = Room::where('id',$booking->room_id)->first();
+        $room->status = 'vacant';
+        $room->save();
+
+        return redirect('/room');
     }
 
     public function test(){

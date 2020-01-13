@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Tenant;
+use App\User;
 class TenantController extends Controller
 {
     public function __construct()
@@ -14,7 +15,7 @@ class TenantController extends Controller
 
     public function index()
     {
-        $tenants=Tenant::all();
+        $tenants=User::where('type_id',1)->get();
         return view('admin.tenant.index',compact('tenants'));
     }
 
